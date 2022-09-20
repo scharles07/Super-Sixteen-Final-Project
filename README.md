@@ -1,2 +1,3 @@
 - Jennifer Young
 - Vanessa Conway
+- Naomie Casimir-Nicolas
