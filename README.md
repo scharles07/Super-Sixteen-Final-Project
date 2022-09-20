@@ -1,2 +1,2 @@
-Jennifer Young
-Vanessa Conway
+- Jennifer Young
+- Vanessa Conway
