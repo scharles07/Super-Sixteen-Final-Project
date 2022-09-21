@@ -1,3 +1,3 @@
 - Jennifer Young
 - Vanessa Conway
-- Lisa and Sabrina rock!
+- Lisa Asubonteng
