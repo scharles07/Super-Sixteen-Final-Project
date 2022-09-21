@@ -1,3 +1,3 @@
 - Jennifer Young
 - Vanessa Conway
-- Naomie Casimir-Nicolas
+- Lisa and Sabrina rock!
