@@ -1,0 +1,60 @@
+install.packages("readxl")
+install.packages("ggplot2")
+install.packages("dplyr")
+install.packages("Ecdat")
+install.packages("tidyr")
+install.packages("IDPmisc")
+library("IDPmisc")
+library("tidyr")
+library("dplyr")
+library("Ecdat")
+library("ggplot2")
+library("readxl")
+install.packages("xlsx")
+library("xlsx")
+
+# Upload file
+HD2019 <- read_excel("/Users/katriel/Desktop/projects/Super-Sixteen-Final-Project/Data/HD2019.xlsx")
+head(HD2019)
+# Rename columns
+names(HD2019)[names(HD2019) == "INSTNM"] <- "Name"
+names(HD2019)[names(HD2019) == "STABBR"] <- "State"
+names(HD2019)[names(HD2019) == "GENTELE"] <- "Phone"
+names(HD2019)[names(HD2019) == "ICLEVEL"] <- "Level"
+names(HD2019)[names(HD2019) == "HLOFFER"] <- "Highest_Level"
+names(HD2019)[names(HD2019) == "UGOFFER"] <- "UndergradOffering"
+names(HD2019)[names(HD2019) == "GROFFER"] <- "GraduateOffering"
+names(HD2019)[names(HD2019) == "HDEGOFR1"] <- "HighestDegreeOffered"
+names(HD2019)[names(HD2019) == "DEGGRANT"] <- "DegreeGrantingStatus"
+names(HD2019)[names(HD2019) == "LOCALE"] <- "DegreeOfUrbanization"
+names(HD2019)[names(HD2019) == "ACT"] <- "StatusOfInstitution"
+names(HD2019)[names(HD2019) == "CYACTIVE"] <- "CurrentYrActive"
+names(HD2019)[names(HD2019) == "PSEFLAG"] <- "PostsecondaryInstitution"
+names(HD2019)[names(HD2019) == "PSET4FLG"] <- "PostsecondaryTitle4"
+names(HD2019)[names(HD2019) == "RPTMTH"] <- "ReportingMethodStChanges"
+names(HD2019)[names(HD2019) == "DFRCGID"] <- "DataFeedbackReportNCES"
+names(HD2019)[names(HD2019) == "C15BASIC"] <- "CarnegieClassification"
+names(HD2019)[names(HD2019) == "C18IPUG"] <- "CarnegieClassificationUndergrad"
+names(HD2019)[names(HD2019) == "C18UGPRF"] <- "CarnegieClassificationUndergradProfile"
+names(HD2019)[names(HD2019) == "C18BASIC"] <- "CarnegieClassificationBasic"
+names(HD2019)[names(HD2019) == "DFRCUSCG"] <- "DataFeedbackCustom"
+names(HD2019)[names(HD2019) == "F1SYSTYP"] <- "MultiCampusOrg"
+names(HD2019)[names(HD2019) == "F1SYSCOD"] <- "MultiCampusCode"
+names(HD2019)[names(HD2019) == "F1SYSNAM"] <- "MultiCampusName"
+names(HD2019)[names(HD2019) == "CBSA"] <- "CoreBasedStatisticalArea"
+names(HD2019)[names(HD2019) == "CSA"] <- "CombinedStatArea"
+names(HD2019)[names(HD2019) == "NECTA"] <- "NewEnglandTownArea"
+names(HD2019)[names(HD2019) == "CNGDSTCD"] <- "CongressionalDistrict"
+names(HD2019)[names(HD2019) == "VETURL"] <- "SericememTuition"
+names(HD2019)[names(HD2019) == "INSTSIZE"] <- "InstitutionSize"
+names(HD2019)[names(HD2019) == "ATHURL"] <- "AthleteGradRate"
+HD2019.isnull().sum()
+
+# Subsetting Data
+keeps <- c("UNITID", "Name", "State", "DUNS", "SECTOR", "Level", "CONTROL", "Highest_Level", "UndergradOffering", "GraduateOffering", "HighestDegreeOffered",
+           "DegreeGrantingStatus", "HBCU", "HOSPITAL", "MEDICAL", "TRIBAL", "DegreeOfUrbanization", "OPENPUBL", "DEATHYR", "CLOSEDAT", "CurrentYrActive", 
+           "POSTSEC", "PostsecondaryInstitution", "PostsecondaryTitle4", "ReportingMethodStChanges", "INSTCAT", "CarnegieClassificationBasic", "CarnegieClassificationUndergrad")
+HD2019_1 <- HD2019[keeps]
+
+# Remove any NA within the data
+HD2019_2 = NaRV.omit(HD2019_1)
